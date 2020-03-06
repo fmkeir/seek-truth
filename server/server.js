@@ -13,13 +13,12 @@ MongoClient.connect('mongodb://localhost:27017')
     const db = client.db('group0');
     const usersCollection = db.collection('users');
     const locationsCollection = db.collection('locations');
-    const riddlesCollection = db.collection('riddles');
 
     const usersRouter = createRouter(usersCollection);
     const locationsRouter = createRouter(locationsCollection);
-    const riddlesRouter = createRouter(riddlesCollection);
 
     app.use('/api/users', usersRouter);
+    app.use('/api/locations', usersRouter);
   })
   .catch(err => console.error(err));
 
