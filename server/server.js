@@ -18,7 +18,7 @@ MongoClient.connect('mongodb://localhost:27017')
     const locationsRouter = createRouter(locationsCollection);
 
     app.use('/api/users', usersRouter);
-    app.use('/api/locations', usersRouter);
+    app.use('/api/locations', locationsRouter);
   })
   .catch(err => console.error(err));
 
