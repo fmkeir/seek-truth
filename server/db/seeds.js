@@ -4,14 +4,14 @@ db.dropDatabase();
 db.locations.insertMany([
   {
     name: "Party at Cowans",
-    dateTime: '2020-03-13T19:30:00Z',
+    eventNumber: 1,
     instructions: 'instructions go here',
     locationLat: 55.9589326,
     locationLong: -3.2139106,
   },
   {
     name: "Party at Botanics",
-    dateTime: '2020-03-20T23:00:00Z',
+    eventNumber: 2,
     instructions: 'instructions go here',
     locationLat: 55.9503509,
     locationLong: -3.1918862,
