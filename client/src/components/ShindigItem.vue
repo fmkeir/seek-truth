@@ -1,5 +1,5 @@
 <template lang="html">
-  <li @click="handleClick">{{shindig.eventNumber}}: {{shindig.name}}</li>
+  <li @click="handleClick">{{shindig.shindigNumber}}: {{shindig.name}}</li>
 </template>
 
 <script>

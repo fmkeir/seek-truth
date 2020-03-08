@@ -1,6 +1,6 @@
 <template lang="html">
   <div id="app">
-    <admin-page :shindigs="shindigs"/>
+    <admin-page :shindigs="shindigs" :users="users"/>
   </div>
 </template>
 

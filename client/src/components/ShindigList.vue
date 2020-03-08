@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import ShindigItem from '@/components/ShindigItem'
+import ShindigItem from '@/components/ShindigItem.vue'
 
 export default {
   name: "shindig-list",
