@@ -21,4 +21,9 @@ export default {
 </script>
 
 <style lang="css" scoped>
+#user-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 </style>

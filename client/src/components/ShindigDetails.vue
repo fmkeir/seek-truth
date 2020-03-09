@@ -3,6 +3,8 @@
     <h2>Shindig Name: {{ shindig.name }}</h2>
     <h2>Shindig Number: {{ shindig.number }}</h2>
     <h2>Shindig Instructions: {{ shindig.instructions }}</h2>
+    <h2>Shindig Latitude: {{ shindig.locationLat}}</h2>
+    <h2>Shindig Longitude: {{ shindig.locationLong}}</h2>
   </div>
 </template>
 
