@@ -42,11 +42,10 @@ export default {
     })
 
     eventBus.$on('edit-shindig', response => {
-      if (this.edit === true) {
-        console.log(response.editedShindig._id);
-        ShindigService.updateShindig(response.editedShindig)
-      }
       this.edit = response.status
+      if (response.status === false) {
+        this.selectedShindig = response.editedShindig;
+      }
     })
   }
 }

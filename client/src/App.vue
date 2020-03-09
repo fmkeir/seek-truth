@@ -36,7 +36,6 @@ export default {
       if (response.status === false) {
         ShindigService.updateShindig(updatedShindig)
         const index = this.shindigs.findIndex(shindig => shindig._id === updatedShindig._id);
-        console.log(index, this.shindigs);
         this.shindigs.splice(index, 1, updatedShindig);
       }
     })
