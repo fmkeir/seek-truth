@@ -46,4 +46,19 @@ db.users.insertMany([
       {shindigID: shindig2ID, status: 'not checked-in'}
     ]
   }
+
+]);
+
+db.riddles.insertMany([
+  {
+    riddle: "what has to be broken before you can use it?",
+    answer: "an egg",
+    shindigID: shindig1ID
+
+  },
+  {
+    riddle: "what gets wet while drying?",
+    answer: "a towel",
+    shindigID: shindig2ID
+  }
 ]);
