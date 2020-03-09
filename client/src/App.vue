@@ -1,33 +1,24 @@
 <template lang="html">
   <div id="app">
-<<<<<<< HEAD
-    <admin-page :shindigs="shindigs" :users="users"/>
-
-=======
     <!-- <admin-page :shindigs="shindigs" :users="users"/> -->
     <!-- <user-page :user="users[0]" :shindig="shindigs[0]"/> -->
     <riddle-page :riddles="riddles"/>
->>>>>>> develop
   </div>
 
 </template>
 
 <script>
-<<<<<<< HEAD
 import {eventBus} from '@/main.js'
-import ShindigService from '@/services/ShindigService.js'
-import AdminPage from "@/components/AdminPage";
-=======
 import AdminPage from "@/components/AdminPage.vue";
 import UserPage from "@/components/UserPage.vue";
 import RiddlePage from "@/components/RiddlePage.vue";
->>>>>>> develop
+import ShindigService from '@/services/ShindigService.js'
 
 export default {
   name: "App",
   components: {
-    // "admin-page": AdminPage,
-    // "user-page": UserPage,
+    "admin-page": AdminPage,
+    "user-page": UserPage,
     "riddle-page": RiddlePage
   },
   data() {
@@ -46,7 +37,10 @@ export default {
     .then(res => res.json())
     .then(data => this.users = data)
 
-<<<<<<< HEAD
+    fetch('http://localhost:3000/api/riddles')
+    .then(res => res.json())
+    .then(data => this.riddles = data)
+
     eventBus.$on('edit-shindig', response => {
       const updatedShindig = response.editedShindig
       if (response.status === false) {
@@ -55,11 +49,6 @@ export default {
         this.shindigs.splice(index, 1, updatedShindig);
       }
     })
-=======
-    fetch('http://localhost:3000/api/riddles')
-    .then(res => res.json())
-    .then(data => this.riddles = data)
->>>>>>> develop
   }
 }
 </script>
