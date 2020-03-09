@@ -31,4 +31,10 @@ export default {
 </script>
 
 <style lang="css" scoped>
+
+* {
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+}
 </style>

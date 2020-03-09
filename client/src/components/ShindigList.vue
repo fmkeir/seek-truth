@@ -19,4 +19,7 @@ export default {
 </script>
 
 <style lang="css" scoped>
+ul {
+  list-style-type: none;
+}
 </style>
