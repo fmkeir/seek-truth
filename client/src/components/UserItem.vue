@@ -1,5 +1,5 @@
 <template lang="html">
-  <li @click="handleClick">{{ user.codeName }}</li>
+  <li class="li-user" @click="handleClick">{{ user.codeName }}</li>
 </template>
 
 <script>
@@ -18,4 +18,11 @@ export default {
 </script>
 
 <style lang="css" scoped>
+.li-user {
+  color: red;
+  padding: 15px;
+  margin: auto;
+  text-align: left;
+}
+
 </style>

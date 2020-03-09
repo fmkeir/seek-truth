@@ -18,7 +18,7 @@ export default {
   props: ['selectedShindig'],
   methods: {
     handleEdit(){
-      eventBus.$emit('edit-shindig', true)
+      eventBus.$emit('edit-shindig', {status: true})
     }
 
   }

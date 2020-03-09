@@ -1,7 +1,8 @@
 <template lang="html">
   <div class="shindig-list">
+
     <ul>
-      <shindig-item v-for="(shindig, index) in shindigs" :shindig="shindig" :key="index"></shindig-item>
+      <shindig-item v-for="(shindig, index) in shindigs" :shindig="shindig" :key="index" class="shindig-item"></shindig-item>
     </ul>
   </div>
 </template>
@@ -21,5 +22,19 @@ export default {
 <style lang="css" scoped>
 ul {
   list-style-type: none;
+}
+
+.shindig-item {
+
+    color: red;
+    padding: 15px;
+    margin: auto;
+    text-align: left;
+
+}
+
+.shindig-item:hover {
+  color: blue;
+  font-weight: bold;
 }
 </style>

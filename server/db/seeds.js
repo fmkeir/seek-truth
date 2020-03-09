@@ -5,16 +5,16 @@ db.shindigs.insertMany([
   {
     name: "Party at Cowans",
     shindigNumber: 0,
-    instructions: 'instructions go here',
+    instructions: "instructions go here",
     locationLat: 55.9589326,
-    locationLong: -3.2139106,
+    locationLong: -3.2139106
   },
   {
     name: "Party at Botanics",
     shindigNumber: 1,
-    instructions: 'instructions go here',
+    instructions: "instructions go here",
     locationLat: 55.9503509,
-    locationLong: -3.1918862,
+    locationLong: -3.1918862
   }
 ]);
 

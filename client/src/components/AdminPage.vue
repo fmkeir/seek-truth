@@ -1,6 +1,8 @@
 <template lang="html">
   <div id="admin-page">
-          <h2>Admin panel</h2>
+          <h1>Admin</h1>
+          <h3 class="heading">View & Edit Shindigs</h3>
+
     <div class="flexContainer">
 
       <shindig-list :shindigs="shindigs" class="flexItem"/>
@@ -17,6 +19,7 @@ import ShindigList from '@/components/ShindigList.vue'
 import UserList from '@/components/UserList.vue'
 import ShowShindig from '@/components/ShowShindig.vue'
 import EditShindig from '@/components/EditShindig.vue'
+import ShindigService from '@/services/ShindigService.js'
 
 export default {
   name: 'admin-page',
@@ -38,25 +41,41 @@ export default {
       this.selectedShindig = shindig
     })
 
-    eventBus.$on('edit-shindig', bool => {
-      this.edit = bool
+    eventBus.$on('edit-shindig', response => {
+      if (this.edit === true) {
+        console.log(response.editedShindig._id);
+        ShindigService.updateShindig(response.editedShindig)
+      }
+      this.edit = response.status
     })
   }
 }
 </script>
 
 <style lang="css" scoped>
+#admin-page {
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
+  font-family: 'Arial';
+}
+
 .flexContainer {
   display: flex;
 }
 .flexItem {
-  padding: 15px;
-  margin: 15px;
-  border: solid black 2px;
+  padding: 5px 15px;
+  margin: 5px 15px;
+  background-color: lightgray;
+  min-width: 20%;
 
 }
 
 .featured {
   min-width: 40%;
+}
+
+.heading {
+  margin: auto;
 }
 </style>

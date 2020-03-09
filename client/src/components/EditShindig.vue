@@ -1,13 +1,14 @@
 <template lang="html">
   <div class="">
-    <form method="put">
-      <input type="text" name="" :value="selectedShindig.name">
-      <input type="text" name="" :value="selectedShindig.shindigNumber">
-      <input type="text" name="" :value="selectedShindig.locationLat">
-      <input type="text" name="" :value="selectedShindig.locationLong">
-      <input type="text" name="" :value="selectedShindig.instructions">
 
-      <button @click="handleUpdate">Confirm changes</button>
+    <form method="put" @submit.prevent="handleUpdate">
+      <input type="text" name="" v-model="shindig.name">
+      <input type="text" name="" v-model.number="shindig.shindigNumber">
+      <input type="text" name="" v-model.number="shindig.locationLat">
+      <input type="text" name="" v-model.number="shindig.locationLong">
+      <input type="text" name="" v-model="shindig.instructions">
+
+      <input type="submit" value="Confirm changes"/>
     </form>
   </div>
 </template>
@@ -18,9 +19,17 @@ import {eventBus} from '@/main.js'
 export default {
   name: "show-shindig",
   props: ['selectedShindig'],
+  data() {
+    return {
+      shindig: Object.assign({}, this.selectedShindig)
+    }
+  },
   methods: {
     handleUpdate(){
-      eventBus.$emit('edit-shindig', false)
+      eventBus.$emit('edit-shindig', {
+        status: false,
+        editedShindig: this.shindig
+      })
     }
   }
 }
