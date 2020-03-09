@@ -7,14 +7,14 @@ db.shindigs.insertMany([
     shindigNumber: 0,
     instructions: 'instructions go here',
     locationLat: 55.9589326,
-    locationLong: -3.2139106,
+    locationLong: -3.2139106
   },
   {
     name: "Party at Botanics",
     shindigNumber: 1,
     instructions: 'instructions go here',
     locationLat: 55.9503509,
-    locationLong: -3.1918862,
+    locationLong: -3.1918862
   }
 ]);
 
@@ -45,5 +45,20 @@ db.users.insertMany([
       {shindigID: shindig1ID, status: 'checked-in'},
       {shindigID: shindig2ID, status: 'not checked-in'}
     ]
+  }
+
+]);
+
+db.riddles.insertMany([
+  {
+    riddle: "what has to be broken before you can use it?",
+    answer: "an egg",
+    shindigID: shindig1ID
+
+  },
+  {
+    riddle: "what gets wet while drying?",
+    answer: "a towel",
+    shindigID: shindig2ID
   }
 ]);

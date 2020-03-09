@@ -13,12 +13,15 @@ MongoClient.connect('mongodb://localhost:27017')
     const db = client.db('group0');
     const usersCollection = db.collection('users');
     const shindigsCollection = db.collection('shindigs');
+    const riddlesCollection = db.collection('riddles');
 
     const usersRouter = createRouter(usersCollection);
     const shindigsRouter = createRouter(shindigsCollection);
+    const riddlesRouter = createRouter(riddlesCollection);
 
     app.use('/api/users', usersRouter);
     app.use('/api/shindigs', shindigsRouter);
+    app.use('/api/riddles', riddlesRouter);
   })
   .catch(err => console.error(err));
 
