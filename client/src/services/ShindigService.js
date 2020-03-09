@@ -15,9 +15,7 @@ export default {
         .then(res => res.json())
     },
     updateShindig(payload) {
-        const id = payload._id
-        delete payload._id
-        return fetch(baseURL + id, {
+        return fetch(baseURL + payload._id, {
           method: 'PUT',
           body: JSON.stringify(payload),
           headers: {'Content-Type': 'application/json'}

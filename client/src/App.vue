@@ -7,6 +7,8 @@
 </template>
 
 <script>
+import {eventBus} from '@/main.js'
+import ShindigService from '@/services/ShindigService.js'
 import AdminPage from "@/components/AdminPage";
 
 export default {
@@ -28,6 +30,16 @@ export default {
     fetch('http://localhost:3000/api/users')
     .then(res => res.json())
     .then(data => this.users = data)
+
+    eventBus.$on('edit-shindig', response => {
+      const updatedShindig = response.editedShindig
+      if (response.status === false) {
+        ShindigService.updateShindig(updatedShindig)
+        const index = this.shindigs.findIndex(shindig => shindig._id === updatedShindig._id);
+        console.log(index, this.shindigs);
+        this.shindigs.splice(index, 1, updatedShindig);
+      }
+    })
   }
 }
 </script>
