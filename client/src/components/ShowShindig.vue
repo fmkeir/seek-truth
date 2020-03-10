@@ -1,12 +1,13 @@
 <template lang="html">
   <div class="">
+    <button @click="handleEdit">Edit Shindig</button>
     <p>{{selectedShindig.name}}: {{selectedShindig.shindigNumber}}</p>
     <p>Latitude: {{selectedShindig.locationLat}}</p>
     <p>Longitude: {{selectedShindig.locationLong}}</p>
     <!-- map goes here -->
-    <h3>Instructions:</h3><span>{{selectedShindig.instructions}}</span>
-
-    <button @click="handleEdit">Edit Shindig</button>
+    <p>Instructions:</p><span>{{selectedShindig.instructions}}</span>
+    <p>Question:{{selectedShindig.riddleQuestion}}</p>
+    <p>Answer:{{selectedShindig.riddleAnswer}}</p>
   </div>
 </template>
 
@@ -18,9 +19,8 @@ export default {
   props: ['selectedShindig'],
   methods: {
     handleEdit(){
-      eventBus.$emit('edit-shindig', {status: true})
-    }
-
+      eventBus.$emit('show-edit-shindig')
+    },
   }
 }
 </script>

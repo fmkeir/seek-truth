@@ -3,10 +3,6 @@
     <admin-page :shindigs="shindigs" :users="users"/>
     <!-- <user-page :user="users[0]" :shindig="shindigs[0]"/> -->
     <!-- <riddle-page :riddles="riddles"/> -->
-=======
-    <!-- <admin-page :shindigs="shindigs" :users="users"/> -->
-    <!-- <user-page :user="users[0]" :shindig="shindigs[0]"/> -->
-    <riddle-page :shindigs="shindigs"/>
   </div>
 
 </template>
@@ -28,7 +24,8 @@ export default {
   data() {
     return {
       shindigs: [],
-      users: []
+      users: [],
+      riddles: []
     }
   },
   mounted() {
