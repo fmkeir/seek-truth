@@ -9,12 +9,10 @@ db.users.insertMany([
   {
     codeName: "Eugene",
     sequentialRiddles: 1
-    ]
   },
   {
     codeName: "Banksy",
     sequentialRiddles: 21
-    ]
   }
 ]);
 
