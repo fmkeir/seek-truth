@@ -1,7 +1,7 @@
 <template lang="html">
   <div id="app">
-    <!-- <admin-page :shindigs="shindigs" :users="users"/> -->
-    <user-page :user="users[0]" :shindig="shindigs[0]"/>
+    <admin-page :shindigs="shindigs" :users="users"/>
+    <!-- <user-page :user="users[0]" :shindig="shindigs[0]"/> -->
     <!-- <riddle-page :riddles="riddles"/> -->
   </div>
 
