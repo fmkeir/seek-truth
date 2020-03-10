@@ -1,7 +1,7 @@
 <template lang="html">
   <div id="app">
-    <!-- <admin-page :shindigs="shindigs" :users="users"/> -->
-    <user-page :user="users[0]" :shindig="shindigs[0]"/>
+    <admin-page :shindigs="shindigs" :users="users"/>
+    <!-- <user-page :user="users[0]" :shindig="shindigs[0]"/> -->
     <!-- <riddle-page :riddles="riddles"/> -->
   </div>
 
@@ -44,6 +44,10 @@ export default {
         const index = this.shindigs.findIndex(shindig => shindig._id === updatedShindig._id);
         this.shindigs.splice(index, 1, updatedShindig);
       }
+    })
+    eventBus.$on('create-shindig', response => {
+      ShindigService.postShindig(response.newShindig)
+      .then(shindig => this.shindigs.push(shindig));
     })
   }
 }
