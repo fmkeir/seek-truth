@@ -1,9 +1,8 @@
 <template lang="html">
   <div class="shindig-list">
-    <h3>All Shindigs</h3>
+    <h3 @click="handleClick">All Shindigs</h3>
     <button>Create New Shindig</button>
     <ul>
-      <li @click="handleClick">Show All Users</li>
       <shindig-item v-for="(shindig, index) in shindigs" :shindig="shindig" :key="index" class="shindig-item"></shindig-item>
     </ul>
   </div>
