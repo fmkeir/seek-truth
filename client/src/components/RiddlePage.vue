@@ -4,12 +4,12 @@
     <button
       type="button"
       name="button"
-      v-for="(riddle, index) in riddles"
+      v-for="(shindig, index) in shindigs"
       :key="index"
       @click="handleClick(index)"
       >Riddle {{index}}
     </button>
-    <riddle-display :selectedRiddle="selectedRiddle"/>
+    <riddle-display :selectedShindig="selectedShindig"/>
   </div>
 
 </template>
@@ -23,20 +23,20 @@ export default {
   components: {
     'riddle-display': RiddleDisplay
   },
-  props: ['riddles'],
+  props: ['shindigs'],
   data() {
     return {
-      selectedRiddle: {}
+      selectedShindig: {}
     }
   },
   watch: {
-    riddles() {
-      this.selectedRiddle = this.riddles[0]
+    shindigs() {
+      this.selectedShindig = this.shindigs[0]
     }
   },
   methods: {
     handleClick(index) {
-      this.selectedRiddle = this.riddles[index]
+      this.selectedShindig = this.shindigs[index]
     }
   }
 }
