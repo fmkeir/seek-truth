@@ -83,6 +83,10 @@ export default {
       this.edit = true;
     })
 
+    eventBus.$on('all-users-selected', () => {
+      this.selectedShindigId = null
+    })
+    
     eventBus.$on('show-create-form', () => {
       this.create = true;
     })

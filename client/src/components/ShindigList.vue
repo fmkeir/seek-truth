@@ -1,6 +1,7 @@
 <template lang="html">
   <div class="shindig-list">
-    <h3>All Shindigs</h3>
+
+    <h3 @click="handleClick">All Shindigs</h3>
     <button @click="showCreateForm">Create New Shindig</button>
     <ul>
       <shindig-item v-for="(shindig, index) in shindigs" :shindig="shindig" :key="index" class="shindig-item"></shindig-item>
@@ -19,10 +20,15 @@ export default {
     'shindig-item': ShindigItem
   },
   methods: {
+    handleClick() {
+      eventBus.$emit('all-users-selected')
+    },
+
     showCreateForm() {
       eventBus.$emit('show-create-form')
     }
   }
+
 }
 </script>
 
