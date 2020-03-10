@@ -6,7 +6,7 @@
     <div class="flexContainer">
 
       <shindig-list :shindigs="shindigs" class="flexItem"/>
-      <user-list :users="users" class="flexItem"/>
+      <user-list :users="filteredUsers" class="flexItem"/>
       <show-shindig v-if="!edit&&selectedShindig" :selectedShindig="selectedShindig" class="flexItem featured"/>
       <edit-shindig v-if="edit" :selectedShindig="selectedShindig" class="flexItem featured"/>
     </div>
@@ -34,6 +34,18 @@ export default {
     'user-list': UserList,
     'show-shindig': ShowShindig,
     'edit-shindig': EditShindig
+  },
+  computed: {
+    filteredUsers: function() {
+      if (this.selectedShindig) {
+        const shindigUserNames = this.selectedShindig.users.map(user => user.codeName)
+        return this.users.filter(user => {
+          return shindigUserNames.includes(user.codeName)
+        })
+      } else {
+        return this.users
+      }
+    }
   },
   props: ['shindigs', 'users' ],
   mounted(){
