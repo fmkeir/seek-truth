@@ -1,6 +1,6 @@
 <template lang="html">
   <div class="riddle">
-    <h2> {{selectedRiddle.riddle}}</h2>
+    <h2> {{selectedShindig.riddleQuestion}}</h2>
     <form>
       <input type="text" name="" value="">
     </form>
@@ -10,7 +10,7 @@
 <script>
 export default {
   name: 'riddle',
-  props: ['selectedRiddle']
+  props: ['selectedShindig']
 }
 </script>
 
