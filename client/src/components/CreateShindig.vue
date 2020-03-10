@@ -3,19 +3,19 @@
     <h3>Create New Shindig</h3>
     <form method="post" @submit.prevent="createNew" class="flexContainer">
       <label for="shin-name">Name</label>
-      <input type="text" name="shin-name" v-model="newShindig.name">
+      <input type="text" name="shin-name" v-model="name">
       <label for="shin-num">Number</label>
-      <input type="text" name="shin-num" v-model="newShindig.number">
+      <input type="text" name="shin-num" v-model="number">
       <label for="shin-lat">Latitude</label>
-      <input type="text" name="shin-lat" v-model="newShindig.locationLat">
+      <input type="text" name="shin-lat" v-model="locationLat">
       <label for="shin-lon">Longitude</label>
-      <input type="text" name="shin-lon" v-model="newShindig.locationLong">
+      <input type="text" name="shin-lon" v-model="locationLong">
       <label for="shin-instr">Instructions</label>
-      <input type="text" name="shin-instr" v-model="newShindig.instructions">
+      <input type="text" name="shin-instr" v-model="instructions">
       <label for="shin-quest">Question</label>
-      <input type="text" name="shin-quest" v-model="newShindig.riddleQuestion">
+      <input type="text" name="shin-quest" v-model="riddleQuestion">
       <label for="shin-ans">Answer</label>
-      <input type="text" name="shin-ans" v-model="newShindig.riddleAnswer">
+      <input type="text" name="shin-ans" v-model="riddleAnswer">
 
       <input type="submit" value="Create New Shindig"/>
     </form>
@@ -29,7 +29,6 @@ export default {
     name: 'create-shindig',
     data(){
         return {
-          newShindig: {
             name: "",
             shindigNumber: null,
             instructions: "",
@@ -38,7 +37,6 @@ export default {
             riddleQuestion: "",
             riddleAnswer: "",
             users: []
-          }
         }
     },
     methods: {

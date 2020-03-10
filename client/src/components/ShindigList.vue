@@ -1,7 +1,7 @@
 <template lang="html">
   <div class="shindig-list">
     <h3>All Shindigs</h3>
-    <button>Create New Shindig</button>
+    <button @click="showCreateForm">Create New Shindig</button>
     <ul>
       <shindig-item v-for="(shindig, index) in shindigs" :shindig="shindig" :key="index" class="shindig-item"></shindig-item>
     </ul>
@@ -10,12 +10,18 @@
 
 <script>
 import ShindigItem from '@/components/ShindigItem.vue'
+import {eventBus} from '@/main.js'
 
 export default {
   name: "shindig-list",
   props: ['shindigs'],
   components: {
     'shindig-item': ShindigItem
+  },
+  methods: {
+    showCreateForm() {
+      eventBus.$emit('show-create-form')
+    }
   }
 }
 </script>

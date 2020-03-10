@@ -66,8 +66,8 @@ export default {
         this.edit = false;
     })
 
-    eventBus.$on('create-shindig', response => {
-      ShindigService.postShindig(response.newShindig)
+    eventBus.$on('create-shindig', newShindig => {
+      ShindigService.postShindig(newShindig)
       .then(shindig => this.shindigs.push(shindig));
     })
 
@@ -77,6 +77,10 @@ export default {
 
     eventBus.$on('show-edit-shindig', () => {
       this.edit = true;
+    })
+
+    eventBus.$on('show-create-form', () => {
+      this.create = true;
     })
   }
 }
