@@ -26,7 +26,7 @@ export default {
   data(){
     return {
       shindigs: [],
-      selectedShindig: null,
+      selectedShindigId: null,
       edit: false,
       create: false
     }
@@ -48,6 +48,9 @@ export default {
       } else {
         return this.users
       }
+    },
+    selectedShindig: function() {
+      return this.shindigs.find(shindig => shindig._id === this.selectedShindigId);
     }
   },
   props: ['users'],
@@ -60,7 +63,6 @@ export default {
         ShindigService.updateShindig(editedShindig)
         const index = this.shindigs.findIndex(shindig => shindig._id === editedShindig._id);
         this.shindigs.splice(index, 1, editedShindig);
-        this.selectedShindig = editedShindig;
         this.edit = false;
     })
 
@@ -68,8 +70,9 @@ export default {
       ShindigService.postShindig(response.newShindig)
       .then(shindig => this.shindigs.push(shindig));
     })
-    eventBus.$on('shindig-selected', shindig => {
-      this.selectedShindig = shindig
+
+    eventBus.$on('shindig-selected', shindigId => {
+      this.selectedShindigId = shindigId
     })
 
     eventBus.$on('show-edit-shindig', () => {

@@ -10,7 +10,7 @@ export default {
   props: ['shindig'],
   methods: {
     handleClick(){
-      eventBus.$emit('shindig-selected', this.shindig)
+      eventBus.$emit('shindig-selected', this.shindig._id)
     }
   }
 }
