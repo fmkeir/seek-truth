@@ -1,7 +1,8 @@
 <template lang="html">
   <div class="user-list">
+    <h3>Attending Users</h3>
     <ul>
-      <user-item v-for="(user, index) in users" :user="user" :key="index"></user-item>
+      <user-item v-for="(user, index) in users" :user="user" :key="index" class="user-list"></user-item>
     </ul>
   </div>
 </template>
@@ -21,4 +22,5 @@ export default {
 ul {
   list-style-type: none;
 }
+
 </style>

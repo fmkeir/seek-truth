@@ -1,6 +1,7 @@
 <template lang="html">
   <div class="shindig-list">
-
+    <h3>All Shindigs</h3>
+    <button>Create New Shindig</button>
     <ul>
       <shindig-item v-for="(shindig, index) in shindigs" :shindig="shindig" :key="index" class="shindig-item"></shindig-item>
     </ul>
@@ -26,7 +27,7 @@ ul {
 
 .shindig-item {
 
-    color: red;
+
     padding: 15px;
     margin: auto;
     text-align: left;
@@ -34,7 +35,7 @@ ul {
 }
 
 .shindig-item:hover {
-  color: blue;
-  font-weight: bold;
+  color: green;
+
 }
 </style>
