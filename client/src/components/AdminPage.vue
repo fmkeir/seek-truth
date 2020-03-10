@@ -66,8 +66,8 @@ export default {
         this.edit = false;
     })
 
-    eventBus.$on('create-shindig', response => {
-      ShindigService.postShindig(response.newShindig)
+    eventBus.$on('create-shindig', newShindig => {
+      ShindigService.postShindig(newShindig)
       .then(shindig => this.shindigs.push(shindig));
     })
 
@@ -81,6 +81,10 @@ export default {
 
     eventBus.$on('all-users-selected', () => {
       this.selectedShindigId = null
+    })
+    
+    eventBus.$on('show-create-form', () => {
+      this.create = true;
     })
   }
 }
@@ -102,9 +106,9 @@ export default {
   text-align: center;
   font-family: 'Arial';
 
-  background: #0cebeb;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #29ffc6, #20e3b2, #0cebeb);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #29ffc6, #20e3b2, #0cebeb); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #141E30;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #243B55, #141E30);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #243B55, #141E30); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 
 }
