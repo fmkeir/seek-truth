@@ -3,19 +3,26 @@
     <h3>All Shindigs</h3>
     <button>Create New Shindig</button>
     <ul>
+      <li @click="handleClick">Show All Users</li>
       <shindig-item v-for="(shindig, index) in shindigs" :shindig="shindig" :key="index" class="shindig-item"></shindig-item>
     </ul>
   </div>
 </template>
 
 <script>
-import ShindigItem from '@/components/ShindigItem.vue'
+import { eventBus } from '@/main.js';
+import ShindigItem from '@/components/ShindigItem.vue';
 
 export default {
   name: "shindig-list",
   props: ['shindigs'],
   components: {
     'shindig-item': ShindigItem
+  },
+  methods: {
+    handleClick() {
+      eventBus.$emit('all-users-selected')
+    }
   }
 }
 </script>

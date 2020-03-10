@@ -78,6 +78,10 @@ export default {
     eventBus.$on('show-edit-shindig', () => {
       this.edit = true;
     })
+
+    eventBus.$on('all-users-selected', () => {
+      this.selectedShindigId = null
+    })
   }
 }
 </script>
