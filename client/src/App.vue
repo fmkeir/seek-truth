@@ -1,6 +1,6 @@
 <template lang="html">
   <div id="app">
-    <admin-page :users="users"/>
+    <admin-page/>
     <!-- <user-page :user="users[0]" :shindig="shindigs[0]"/> -->
     <!-- <riddle-page :riddles="riddles"/> -->
   </div>
@@ -23,17 +23,10 @@ export default {
   },
   data() {
     return {
-      users: [],
-      riddles: []
+      // riddles: []
     }
   },
   mounted() {
-
-    fetch('http://localhost:3000/api/users')
-    .then(res => res.json())
-    .then(data => this.users = data)
-
-
   }
 }
 </script>
@@ -47,5 +40,3 @@ export default {
 }
 
 </style>
-
-<!-- test comment -->

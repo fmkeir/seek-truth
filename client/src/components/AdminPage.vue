@@ -4,7 +4,7 @@
           <h3 class="heading">View & Edit Shindigs</h3>
     <div class="flexContainer">
       <shindig-list :shindigs="shindigs" class="flexItem"/>
-      <user-list :users="filteredUsers" class="flexItem"/>
+      <user-list :users="filteredUsers" :selectedShindig="selectedShindig" class="flexItem"/>
       <show-shindig v-if="!edit&&selectedShindig" :selectedShindig="selectedShindig" class="flexItem featured"/>
       <edit-shindig v-if="edit" :selectedShindig="selectedShindig" class="flexItem featured"/>
       <create-shindig v-if="create" class='flexItem'/>
@@ -26,6 +26,7 @@ export default {
   data(){
     return {
       shindigs: [],
+      users: [],
       selectedShindigId: null,
       edit: false,
       create: false
@@ -53,11 +54,14 @@ export default {
       return this.shindigs.find(shindig => shindig._id === this.selectedShindigId);
     }
   },
-  props: ['users'],
   mounted(){
     fetch('http://localhost:3000/api/shindigs')
     .then(res => res.json())
     .then(data => this.shindigs = data)
+
+    fetch('http://localhost:3000/api/users')
+    .then(res => res.json())
+    .then(data => this.users = data)
 
     eventBus.$on('submit-edit-shindig', editedShindig => {
         ShindigService.updateShindig(editedShindig)
@@ -82,6 +86,15 @@ export default {
     eventBus.$on('show-create-form', () => {
       this.create = true;
     })
+
+    eventBus.$on('update-checked-in-status', userCodeName => {
+      if (this.selectedShindigId) {
+        const index = this.shindigs.findIndex(shindig => shindig._id === this.selectedShindigId);
+        const activeUser = this.shindigs[index].users.find(user => user.codeName = userCodeName)
+        activeUser.checkedIn = !activeUser.checkedIn
+        ShindigService.updateShindig(this.shindigs[index])
+      };
+    });
   }
 }
 </script>
