@@ -1,9 +1,6 @@
 use group0;
 db.dropDatabase();
 
-shindig1ID = db.shindigs.findOne({name:"Party at Cowans"})._id
-shindig2ID = db.shindigs.findOne({name:"Party at Botanics"})._id
-
 db.users.insertMany([
   {
     codeName: "fox",
