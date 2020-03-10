@@ -1,8 +1,8 @@
 <template lang="html">
   <div id="app">
     <!-- <admin-page :shindigs="shindigs" :users="users"/> -->
-    <!-- <user-page :user="users[0]" :shindig="shindigs[0]"/> -->
-    <riddle-page :riddles="riddles"/>
+    <user-page :user="users[0]" :shindig="shindigs[0]"/>
+    <!-- <riddle-page :riddles="riddles"/> -->
   </div>
 
 </template>
@@ -36,10 +36,6 @@ export default {
     fetch('http://localhost:3000/api/users')
     .then(res => res.json())
     .then(data => this.users = data)
-
-    fetch('http://localhost:3000/api/riddles')
-    .then(res => res.json())
-    .then(data => this.riddles = data)
 
     eventBus.$on('edit-shindig', response => {
       const updatedShindig = response.editedShindig
