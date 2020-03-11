@@ -5,7 +5,7 @@
       <label for="shin-name">Name</label>
       <input type="text" name="shin-name" v-model="name">
       <label for="shin-num">Number</label>
-      <input type="text" name="shin-num" v-model="number">
+      <input type="text" name="shin-num" v-model="shindigNumber">
       <label for="shin-lat">Latitude</label>
       <input type="text" name="shin-lat" v-model="locationLat">
       <label for="shin-lon">Longitude</label>

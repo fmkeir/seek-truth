@@ -21,6 +21,7 @@ import EditShindig from '@/components/EditShindig.vue'
 import CreateShindig from '@/components/CreateShindig.vue'
 import ShindigService from '@/services/ShindigService.js'
 
+
 export default {
   name: 'admin-page',
   data(){
@@ -86,7 +87,7 @@ export default {
     eventBus.$on('all-users-selected', () => {
       this.selectedShindigId = null
     })
-    
+
     eventBus.$on('show-create-form', () => {
       this.create = true;
     })
@@ -133,7 +134,6 @@ export default {
 .flexItem {
   min-width: 200px;
   min-height: 200px;
-  max-height: 400px;
   max-width: 200px;
   width: auto;
   height: auto;
