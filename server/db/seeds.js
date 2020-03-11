@@ -26,8 +26,8 @@ db.shindigs.insertMany([
     riddleQuestion: "what has to be broken before you can use it?",
     riddleAnswer: "an egg",
     users: [
-      {codeName: "fox"},
-      {codeName: "Banksy"},
+      {codeName: "fox", "checkedIn": false},
+      {codeName: "Banksy", "checkedIn": true},
     ]
   },
   {
@@ -39,7 +39,7 @@ db.shindigs.insertMany([
     riddleQuestion: "what gets wet while drying?",
     riddleAnswer: "a towel",
     users: [
-      {codeName: "Eugene"}
+      {codeName: "Eugene", "checkedIn": false}
     ]
   }
 ]);

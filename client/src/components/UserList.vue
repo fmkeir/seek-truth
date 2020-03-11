@@ -2,7 +2,7 @@
   <div class="user-list">
     <h3>Attending Users</h3>
     <ul>
-      <user-item v-for="(user, index) in users" :user="user" :key="index" class="user-list"></user-item>
+      <user-item v-for="(user, index) in users" :user="user" :key="index" :selectedShindig="selectedShindig"></user-item>
     </ul>
   </div>
 </template>
@@ -11,10 +11,10 @@
 import UserItem from '@/components/UserItem.vue'
 export default {
   name: "user-list",
-  props: ['users'],
+  props: ['users', 'selectedShindig'],
   components: {
     'user-item': UserItem
-  }
+  },
 }
 </script>
 

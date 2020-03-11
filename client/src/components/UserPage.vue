@@ -1,6 +1,6 @@
 <template lang="html">
   <div id="user-page">
-    <user-details :user="user"/>
+    <!-- <user-details :user="user"/> -->
     <shindig-details :shindig="shindig"/>
     </div>
 </template>

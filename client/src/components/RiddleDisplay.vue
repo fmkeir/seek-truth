@@ -1,10 +1,10 @@
 <template lang="html">
   <div class="riddle">
-    <h2> {{selectedShindig.riddleQuestion}}</h2>
-    <form class="landing-form">
+    <h2> {{selectedRiddle.riddleQuestion}}</h2>
+    <form class="landing-form" @submit.prevent="handleSubmit">
       <h1 class="landing-component splash-text">SEEK TRUTH</h1>
       <img src="https://static.thenounproject.com/png/499640-200.png" class="app-logo landing-component">
-      <input type="text" name="" value="****" class="landing-component login-component" autofocus>
+      <input type="text" name="" placeholder="****" class="landing-component login-component" autofocus v-model="answer">
       <button @click.prevent="slideIn" class="landing-component codeword-entry">VIEW DOCUMENT</button>
 
     </form>
@@ -36,17 +36,31 @@
 </template>
 
 <script>
+import { eventBus } from '@/main.js'
 export default {
   name: 'riddle',
-  props: ['selectedShindig'],
+  props: ['selectedRiddle'],
+  data() {
+    return {
+      answer: ''
+    }
+  },
   methods: {
     slideIn(){
       const topSecretDocument =  document.getElementById('secret-document');
       topSecretDocument.classList.add('slideIn');
     },
+
     slideOut(){
       const topSecretDocument =  document.getElementById('secret-document');
       topSecretDocument.classList.remove('slideIn');
+    },
+
+    handleSubmit() {
+      eventBus.$emit('submited-user-answer', {
+        _id: this.selectedRiddle.shindigId,
+        userAnswer: this.answer
+      })
     }
   }
 }

@@ -1,8 +1,8 @@
 <template lang="html">
   <div id="app">
-    <!-- <admin-page :users="users"/> -->
-    <!-- <user-page :user="users[0]" :shindig="shindigs[0]"/> -->
-    <riddle-page :riddles="riddles"/>
+    <!-- <admin-page/> -->
+    <user-page :shindig="selectedShindig" v-if="showUserPage"/>
+    <riddle-page v-if="showRiddlePage" :shindigs="shindigs"/>
   </div>
 
 </template>
@@ -23,17 +23,20 @@ export default {
   },
   data() {
     return {
-      users: [],
-      riddles: []
+      riddles: [],
+      shindigs: [],
+      selectedShindig: null,
+      showUserPage: false,
+      showRiddlePage: true
     }
   },
   mounted() {
 
-    fetch('http://localhost:3000/api/users')
-    .then(res => res.json())
-    .then(data => this.users = data)
-
-
+    eventBus.$on('please-show-user-page', shindig => {
+      this.showUserPage = true
+      this.showRiddlePage = false
+      this.selectedShindig = shindig
+    })
   }
 }
 </script>
@@ -89,5 +92,3 @@ table {
 }
 
 </style>
-
-<!-- test comment -->
