@@ -3,7 +3,8 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const MongoClient = require('mongodb').MongoClient;
 const createRouter = require('./helpers/create_router.js');
-const errorLog = require('./helpers/error_log.js')
+const errorLog = require('./helpers/error_log.js');
+const ObjectId = require('mongodb').ObjectID;
 
 const app = express();
 app.use(cors());
@@ -29,6 +30,28 @@ MongoClient.connect('mongodb://localhost:27017')
       }))
       .then(riddles => res.json(riddles))
       .catch(errorLog)
+    })
+
+    riddlesRouter.post('/submit-answer', (req, res) => {
+      const newData = req.body;
+      const userAnswer = newData.userAnswer
+      const shindigId = newData._id
+
+      // get the shindig
+      shindigsCollection.findOne({
+        _id: ObjectId(shindigId)
+      })
+        .then(shindig => {
+          // if userAnswer = shindig answer
+          if (userAnswer === shindig.riddleAnswer){
+            // return shindig
+            res.json(shindig)
+          } else {
+            // else return error
+            res.json({error: 'ERROR'})
+          }
+        })
+        .catch(errorLog)
     })
 
     app.use('/api/users', usersRouter);

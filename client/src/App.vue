@@ -39,10 +39,24 @@ export default {
       .then(res => res.json())
       .then(riddles => this.riddles = riddles)
 
-    eventBus.$on('please-show-user-page', shindig => {
-      this.showUserPage = true
-      this.showRiddlePage = false
-      this.selectedShindig = shindig
+    eventBus.$on('submited-user-answer', (userAnswer) => {
+      fetch('http://localhost:3000/api/riddles/submit-answer', {
+        method: 'POST',
+        body: JSON.stringify(userAnswer),
+        headers: {'Content-Type' : 'application/json'}
+      })
+        .then(res => res.json())
+        .then(data => {
+          if (data.error) {
+            // show errror
+
+          } else {
+            this.selectedShindig = data
+            this.showUserPage = true
+            this.showRiddlePage = false
+          }
+        })
+
     })
   }
 }

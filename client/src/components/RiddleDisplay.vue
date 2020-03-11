@@ -19,12 +19,10 @@ export default {
   },
   methods: {
     handleSubmit() {
-      console.log('the answer is ', this.answer);
-      console.log('this answer is: ', this.selectedRiddle.riddleAnswer === this.answer);
-
-      if (this.selectedRiddle.riddleAnswer === this.answer){
-        eventBus.$emit('please-show-user-page', this.selectedRiddle)
-      }
+      eventBus.$emit('submited-user-answer', {
+        _id: this.selectedRiddle.shindigId,
+        userAnswer: this.answer
+      })
     }
   }
 }
