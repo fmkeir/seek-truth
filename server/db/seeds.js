@@ -23,7 +23,7 @@ db.shindigs.insertMany([
     instructions: "Knock thrice.",
     locationLat: 55.9589326,
     locationLong: -3.2139106,
-    riddleQuestion: "ALPHA NOVEMBER UNIFORM BRAVO INDIA CHARLIE",
+    riddleQuestion: "ALPHA NOVEMBER UNIFORM BRAVO INDIA SIERRA",
     riddleAnswer: "ANUBIS",
     users: [
       {codeName: "FRASER", "checkedIn": true},
