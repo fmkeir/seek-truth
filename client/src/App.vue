@@ -1,8 +1,8 @@
 <template lang="html">
   <div id="app">
-    <admin-page/>
-    <!-- <user-page :user="users[0]" :shindig="shindigs[0]"/> -->
-    <!-- <riddle-page :riddles="riddles"/> -->
+    <!-- <admin-page/> -->
+    <user-page :shindig="selectedShindig" v-if="showUserPage"/>
+    <riddle-page v-if="showRiddlePage" :shindigs="shindigs"/>
   </div>
 
 </template>
@@ -23,10 +23,21 @@ export default {
   },
   data() {
     return {
-      // riddles: []
+
+      riddles: [],
+      shindigs: [],
+      selectedShindig: null,
+      showUserPage: false,
+      showRiddlePage: true
     }
   },
   mounted() {
+
+    eventBus.$on('please-show-user-page', shindig => {
+      this.showUserPage = true
+      this.showRiddlePage = false
+      this.selectedShindig = shindig
+    })
   }
 }
 </script>
