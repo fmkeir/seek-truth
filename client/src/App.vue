@@ -2,7 +2,7 @@
   <div id="app">
     <!-- <admin-page/> -->
     <user-page :shindig="selectedShindig" v-if="showUserPage"/>
-    <riddle-page v-if="showRiddlePage" :shindigs="shindigs"/>
+    <riddle-page v-if="showRiddlePage" :riddles="riddles"/>
   </div>
 
 </template>
@@ -23,19 +23,38 @@ export default {
   },
   data() {
     return {
+      users: [],
       riddles: [],
-      shindigs: [],
       selectedShindig: null,
       showUserPage: false,
       showRiddlePage: true
     }
   },
   mounted() {
+    fetch('http://localhost:3000/api/users')
+      .then(res => res.json())
+      .then(data => this.users = data)
 
-    eventBus.$on('please-show-user-page', shindig => {
-      this.showUserPage = true
-      this.showRiddlePage = false
-      this.selectedShindig = shindig
+    fetch('http://localhost:3000/api/riddles')
+      .then(res => res.json())
+      .then(riddles => this.riddles = riddles)
+
+    eventBus.$on('submitted-user-answer', (userAnswer) => {
+      fetch('http://localhost:3000/api/riddles/submit-answer', {
+        method: 'POST',
+        body: JSON.stringify(userAnswer),
+        headers: {'Content-Type' : 'application/json'}
+      })
+        .then(res => res.json())
+        .then(data => {
+          if (data.error) {
+            // show error
+          } else {
+            this.selectedShindig = data
+            this.showUserPage = true
+            this.showRiddlePage = false
+          }
+        })
     })
   }
 }

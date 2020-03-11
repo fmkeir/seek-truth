@@ -33,22 +33,18 @@ MongoClient.connect('mongodb://localhost:27017')
     })
 
     riddlesRouter.post('/submit-answer', (req, res) => {
-      const newData = req.body;
-      const userAnswer = newData.userAnswer
-      const shindigId = newData._id
+      const body = req.body;
+      const userAnswer = body.userAnswer
+      const shindigId = body.shindigId
 
-      // get the shindig
       shindigsCollection.findOne({
         _id: ObjectId(shindigId)
       })
         .then(shindig => {
-          // if userAnswer = shindig answer
-          if (userAnswer === shindig.riddleAnswer){
-            // return shindig
+          if (userAnswer === shindig.riddleAnswer) {
             res.json(shindig)
           } else {
-            // else return error
-            res.json({error: 'ERROR'})
+            res.json({ error: 'ERROR' })
           }
         })
         .catch(errorLog)

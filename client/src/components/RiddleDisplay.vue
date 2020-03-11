@@ -5,7 +5,8 @@
       <h1 class="landing-component splash-text">SEEK TRUTH</h1>
       <img src="https://static.thenounproject.com/png/499640-200.png" class="app-logo landing-component">
       <input type="text" name="" placeholder="****" class="landing-component login-component" autofocus v-model="answer">
-      <button @click.prevent="slideIn" class="landing-component codeword-entry">VIEW DOCUMENT</button>
+
+      <!-- <button @click.prevent="slideIn" class="landing-component codeword-entry">VIEW DOCUMENT</button> -->
 
     </form>
 
@@ -57,8 +58,8 @@ export default {
     },
 
     handleSubmit() {
-      eventBus.$emit('submited-user-answer', {
-        _id: this.selectedRiddle.shindigId,
+      eventBus.$emit('submitted-user-answer', {
+        shindigId: this.selectedRiddle.shindigId,
         userAnswer: this.answer
       })
     }
