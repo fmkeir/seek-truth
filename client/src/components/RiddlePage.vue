@@ -43,4 +43,8 @@ export default {
 </script>
 
 <style lang="css" scoped>
+.riddle-page {
+  margin: 0;
+  padding: 0;
+}
 </style>
