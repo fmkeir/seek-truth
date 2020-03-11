@@ -1,6 +1,6 @@
 <template lang="html">
   <div id="app">
-    <!-- <admin-page/> -->
+    <admin-page v-if="showAdminPage"/>
     <user-page :shindig="selectedShindig" v-if="showUserPage"/>
     <riddle-page v-if="showRiddlePage" :riddles="riddles"/>
   </div>
@@ -27,7 +27,8 @@ export default {
       riddles: [],
       selectedShindig: null,
       showUserPage: false,
-      showRiddlePage: true
+      showRiddlePage: true,
+      showAdminPage: false
     }
   },
   mounted() {
@@ -40,6 +41,10 @@ export default {
       .then(riddles => this.riddles = riddles)
 
     eventBus.$on('submitted-user-answer', (userAnswer) => {
+      const inputArray = userAnswer.userAnswer.split(":");
+      userAnswer.userAnswer = inputArray[1]
+      const userCodeName = inputArray[0]
+      console.log(inputArray);
       fetch('http://localhost:3000/api/riddles/submit-answer', {
         method: 'POST',
         body: JSON.stringify(userAnswer),
@@ -47,12 +52,23 @@ export default {
       })
         .then(res => res.json())
         .then(data => {
-          if (data.error) {
-            // show error
-          } else {
+
+          if (data === 'admin') {
+            this.showUserPage = false
+            this.showRiddlePage = false
+            this.showAdminPage = true
+          }
+
+          else if (data.error) {
+            const clearPage = document.getElementById('app');
+            clearPage.innerHTML = "";
+          }
+
+          else {
             this.selectedShindig = data
             this.showUserPage = true
             this.showRiddlePage = false
+            this.showAdminPage = false
           }
         })
     })
