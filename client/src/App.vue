@@ -2,7 +2,7 @@
   <div id="app">
     <!-- <admin-page :users="users"/> -->
     <user-page :shindig="selectedShindig" v-if="showUserPage"/>
-    <riddle-page v-if="showRiddlePage" :shindigs="shindigs"/>
+    <riddle-page v-if="showRiddlePage" :riddles="riddles"/>
   </div>
 
 </template>
@@ -25,7 +25,6 @@ export default {
     return {
       users: [],
       riddles: [],
-      shindigs: [],
       selectedShindig: null,
       showUserPage: false,
       showRiddlePage: true
@@ -36,9 +35,9 @@ export default {
       .then(res => res.json())
       .then(data => this.users = data)
 
-    fetch('http://localhost:3000/api/shindigs')
+    fetch('http://localhost:3000/api/riddles')
       .then(res => res.json())
-      .then(shindigs => this.shindigs = shindigs)
+      .then(riddles => this.riddles = riddles)
 
     eventBus.$on('please-show-user-page', shindig => {
       this.showUserPage = true

@@ -23,7 +23,7 @@ MongoClient.connect('mongodb://localhost:27017')
       shindigsCollection.find().toArray()
       .then(docs => docs.map(doc => {
         return {
-          _id: doc._id,
+          shindigId: doc._id,
           riddleQuestion: doc.riddleQuestion
         }
       }))

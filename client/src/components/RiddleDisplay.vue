@@ -1,6 +1,6 @@
 <template lang="html">
   <div class="riddle">
-    <h2> {{selectedShindig.riddleQuestion}}</h2>
+    <h2> {{selectedRiddle.riddleQuestion}}</h2>
     <form @submit.prevent="handleSubmit">
       <input type="text" name="" v-model="answer">
     </form>
@@ -11,7 +11,7 @@
 import { eventBus } from '@/main.js'
 export default {
   name: 'riddle',
-  props: ['selectedShindig'],
+  props: ['selectedRiddle'],
   data() {
     return {
       answer: ''
@@ -20,10 +20,10 @@ export default {
   methods: {
     handleSubmit() {
       console.log('the answer is ', this.answer);
-      console.log('this answer is: ', this.selectedShindig.riddleAnswer === this.answer);
+      console.log('this answer is: ', this.selectedRiddle.riddleAnswer === this.answer);
 
-      if (this.selectedShindig.riddleAnswer === this.answer){
-        eventBus.$emit('please-show-user-page', this.selectedShindig)
+      if (this.selectedRiddle.riddleAnswer === this.answer){
+        eventBus.$emit('please-show-user-page', this.selectedRiddle)
       }
     }
   }
