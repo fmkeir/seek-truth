@@ -18,28 +18,29 @@ db.users.insertMany([
 
 db.shindigs.insertMany([
   {
-    name: "Party at Cowans",
+    name: "NOEL'S SHINDIG",
     shindigNumber: 0,
-    instructions: "instructions go here",
+    instructions: "Knock thrice.",
     locationLat: 55.9589326,
     locationLong: -3.2139106,
-    riddleQuestion: "what has to be broken before you can use it?",
-    riddleAnswer: "an egg",
+    riddleQuestion: "ALPHA NOVEMBER UNIFORM BRAVO INDIA CHARLIE",
+    riddleAnswer: "ANUBIS",
     users: [
-      {codeName: "fox", "checkedIn": false},
-      {codeName: "Banksy", "checkedIn": true},
+      {codeName: "FRASER", "checkedIn": true},
+      {codeName: "NICK", "checkedIn": true},
+      {codeName: "CARL", "checkedIn": true},
     ]
   },
   {
-    name: "Party at Botanics",
+    name: "HELIOS",
     shindigNumber: 1,
-    instructions: "instructions go here",
+    instructions: "Wear an orange article of clothing.",
     locationLat: 55.9503509,
     locationLong: -3.1918862,
-    riddleQuestion: "what gets wet while drying?",
-    riddleAnswer: "a towel",
+    riddleQuestion: "HOTEL ECHO LIMA INDIA OSCAR SIERRA",
+    riddleAnswer: "HELIOS",
     users: [
-      {codeName: "Eugene", "checkedIn": false}
+      {codeName: "SECRET AGENT EUGENE", "checkedIn": true}
     ]
   }
 ]);

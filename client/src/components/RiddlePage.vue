@@ -46,5 +46,8 @@ export default {
 .riddle-page {
   margin: 0;
   padding: 0;
+  background: #000000;
+  background: -webkit-linear-gradient(to bottom, #434343, #000000);
+  background: linear-gradient(to bottom, #434343, #000000);
 }
 </style>

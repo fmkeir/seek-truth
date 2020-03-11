@@ -6,10 +6,10 @@
       <img src="https://static.thenounproject.com/png/499640-200.png" class="app-logo landing-component">
       <input type="text" name="" placeholder="****" class="landing-component login-component" autofocus v-model="answer">
 
-      <!-- <button @click.prevent="slideIn" class="landing-component codeword-entry">VIEW DOCUMENT</button> -->
+
 
     </form>
-
+      <button @click.prevent="slideIn" class="landing-component centered codeword-entry">VIEW DOCUMENT</button>
       <div class="page-container" id="secret-document">
         <button @click="slideOut" class="hide-document">HIDE DOCUMENT</button>
         <img src="https://www.onlygfx.com/wp-content/uploads/2017/12/classified-stamp-1.png" class="stamp">
@@ -17,6 +17,7 @@
         <h1 class="centered heading">MOST SECRET</h1>
         <h3 class="centered heading">NATSEN:CANUKUS BURN AFTER USE</h3>
         <p class="paragraph centered paragraph-heading">GCHQ NATSEC PANDEMIC UNIT</p>
+        <h1>{{formatAnswer}}</h1>
         <p class="paragraph centered"><span class="large-font">C</span>oronavirus cases rapidly increasing <span class="blackout">ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Pulvinar pellentesque habitant morbi tristique senectus et netus et. In nisl nisi scelerisque eu ultrices. Turpis cursus in hac habitasse platea. Nisl purus in mollis nunc sed id. Volutpat diam ut venenatis tellus in metus. Purus gravida quis blandit turpis cursus in. Quis blandit turpis cursus in hac habitasse.</span>NHS struggling to maintain<span class="blackout"> facilisi nullam vehicula  ipsum a. Est placerat in egestas erat imperdiet sed euismod nisi. Convallis a cras semper auctor neque.</span>
 
         <span class="blackout">Pellentesque eu tincidunt tortor aliquam nulla facilisi. Netus et malesuada fames ac. Venenatis urna cursus eget nunc scelerisque viverra mauris in aliquam.</span><span class="red">HIGHLY DANGEROUS AIRBORNE PATHOGEN</span><span class="blackout">nulla malesuada pellentesque elit eget gravida cum. Sed id semper risus in hendrerit gravida rutrum quisque non. Id aliquet risus feugiat in ante metus dictum at tempor. Integer vitae justo eget magna. Non diam phasellus vestibulum lorem. Vitae nunc sed velit dignissim sodales ut eu sem.</span> Coronaviruses are zoonotic, meaning they are transmitted between animals and people.  Detailed investigations found that SARS-CoV was transmitted from civet cats to humans and MERS-CoV from dromedary camels to humans. Several known coronaviruses are circulating in animals that have not yet infected humans.
@@ -40,11 +41,26 @@
 import { eventBus } from '@/main.js'
 export default {
   name: 'riddle',
-  props: ['selectedRiddle'],
-  data() {
+  data(){
     return {
-      answer: ''
+      answer: ""
     }
+  },
+  props: ['selectedRiddle'],
+  computed: {
+    formatAnswer: function() {
+      if (this.selectedRiddle.riddleQuestion) {
+        let answerArray = []
+        console.log(this.selectedRiddle.riddleQuestion);
+        const tempWordArray = this.selectedRiddle.riddleQuestion.split(" ");
+        tempWordArray.forEach((word) => {
+          answerArray.push(word.substring(0, 1));
+          });
+        return answerArray
+      } else {
+        return ""
+      }
+    },
   },
   methods: {
     slideIn(){
@@ -62,17 +78,15 @@ export default {
         shindigId: this.selectedRiddle.shindigId,
         userAnswer: this.answer
       })
-    }
-  }
+    },
+  },
+
 }
 </script>
 
 <style lang="css" scoped>
 
 .riddle {
-  background: #000000;
-  background: -webkit-linear-gradient(to bottom, #434343, #000000);
-  background: linear-gradient(to bottom, #434343, #000000);
 
   height: auto;
   width: auto;
@@ -168,6 +182,7 @@ export default {
   color: white;
   border-radius: 5px;
   letter-spacing: 7px;
+  width: 100%;
 }
 .codeword-entry:hover {
   color: red;
