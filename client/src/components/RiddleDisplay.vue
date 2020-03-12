@@ -185,6 +185,7 @@ export default {
   width: 300px;
   height: 300px;
   margin-top: 25vh;
+  filter: brightness(1.5);
 }
 .codeword-entry {
   color: white;
