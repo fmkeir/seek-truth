@@ -3,7 +3,7 @@ db.dropDatabase();
 
 db.users.insertMany([
   {
-    codeName: "fox",
+    codeName: "Monty",
     sequentialRiddles: 8
   },
   {
@@ -11,8 +11,16 @@ db.users.insertMany([
     sequentialRiddles: 1
   },
   {
-    codeName: "Banksy",
+    codeName: "Paul",
     sequentialRiddles: 21
+  },
+  {
+    codeName: "Banksy",
+    sequentialRiddles: 5
+  },
+  {
+    codeName: "Cowan and his sons",
+    sequentialRiddles: 7
   }
 ]);
 
@@ -24,11 +32,11 @@ db.shindigs.insertMany([
     locationLat: 55.9589326,
     locationLong: -3.2139106,
     riddleQuestion: "ALPHA NOVEMBER UNIFORM BRAVO INDIA SIERRA",
-    riddleAnswer: "ANUBIS",
+    riddleAnswer: "anubis",
     users: [
-      {codeName: "FRASER", "checkedIn": true},
-      {codeName: "NICK", "checkedIn": true},
-      {codeName: "CARL", "checkedIn": true},
+      {codeName: "Monty", "checkedIn": false},
+      {codeName: "Banksy", "checkedIn": true},
+      {codeName: "Paul", "checkedIn": true}
     ]
   },
   {
@@ -38,9 +46,9 @@ db.shindigs.insertMany([
     locationLat: 55.9503509,
     locationLong: -3.1918862,
     riddleQuestion: "HOTEL ECHO LIMA INDIA OSCAR SIERRA",
-    riddleAnswer: "HELIOS",
+    riddleAnswer: "helios",
     users: [
-      {codeName: "SECRET AGENT EUGENE", "checkedIn": true}
+      {codeName: "Eugene", "checkedIn": true}
     ]
   }
 ]);

@@ -1,7 +1,7 @@
 <template lang="html">
   <div id="admin-page">
           <h1 class="page-title">Admin</h1>
-          <h3 class="heading">View & Edit Shindigs</h3>
+          <h1 class="heading">View & Edit Shindigs</h1>
     <div class="flexContainer">
       <shindig-list :shindigs="shindigs" class="flexItem"/>
       <user-list :users="filteredUsers" :selectedShindig="selectedShindig" class="flexItem"/>
@@ -106,7 +106,6 @@ export default {
 
 <style lang="css" scoped>
 *{
-
   margin: 0px;
   padding: 0px;
   overflow: hidden;
@@ -153,5 +152,8 @@ export default {
 }
 .page-title {
   margin-top: 50px;
+}
+h1 {
+  color: white;
 }
 </style>

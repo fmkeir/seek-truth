@@ -62,6 +62,9 @@ export default {
           else if (data.error) {
             const clearPage = document.getElementById('app');
             clearPage.innerHTML = "";
+            let image = document.createElement('IMG')
+            image.src = 'http://getwallpapers.com/wallpaper/full/0/3/5/40874.jpg';
+            clearPage.appendChild(image);
           }
 
           else {
