@@ -34,8 +34,9 @@ MongoClient.connect('mongodb://localhost:27017')
 
     riddlesRouter.post('/submit-answer', (req, res) => {
       const body = req.body;
-      const userAnswer = body.userAnswer
-      const shindigId = body.shindigId
+      const userAnswer = body.userAnswer;
+      userAnswer.toLowerCase();
+      const shindigId = body.shindigId;
 
       shindigsCollection.findOne({
         _id: ObjectId(shindigId)
@@ -44,7 +45,7 @@ MongoClient.connect('mongodb://localhost:27017')
           if (userAnswer === 'hunter2') {
             res.json('admin')
           }
-          else if (userAnswer === shindig.riddleAnswer) {
+          else if (userAnswer === shindig.riddleAnswer.toLowerCase()) {
             res.json(shindig)
           }
           else {
