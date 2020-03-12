@@ -120,11 +120,12 @@ export default {
   top: 0px;
   left: 0px;
   text-align: center;
-  font-family: 'Arial';
+  font-family: 'Nanum Gothic Coding', monospace;
 
-  background: #457fca;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #5691c8, #457fca);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #5691c8, #457fca); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #202020;
+  background: -webkit-linear-gradient(to bottom, #434343, #202020);
+  background: linear-gradient(to bottom, #434343, #202020);
+  background-size: 100% 300%;
 }
 .flexContainer {
   display: flex;
@@ -137,7 +138,7 @@ export default {
   max-width: 200px;
   width: auto;
   height: auto;
-  background: rgba(255, 255, 255, 0.5);
+  background: white;
   margin: 10px 10px;
   padding: 20px;
   min-width: 20%;

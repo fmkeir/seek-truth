@@ -21,9 +21,6 @@ import DisplayMap from '@/components/DisplayMap.vue'
 export default {
   name: "show-shindig",
   props: ['selectedShindig'],
-  data() {
-    // answerArray: [];
-  },
   components: {
     'display-map': DisplayMap
   },

@@ -156,7 +156,7 @@ export default {
   opacity: 0;
 }
 .slideIn {
-  transform: translateY(-70vh);
+  transform: translateY(-55vh);
   transition: transform 2s;
   opacity: 1;
 }
