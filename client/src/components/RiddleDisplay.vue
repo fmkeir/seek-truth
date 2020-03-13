@@ -1,6 +1,7 @@
 <template lang="html">
   <div class="riddle">
-    <h1 class="landing-component splash-text centered" id="seeker-splash" @click="slideIn">SEEK TRUTH</h1>
+    <h1 class="landing-component splash-text centered" id="seeker-splash" @click="slideIn"><span class="spacing">£</span class="left">SEEK<span class="right">TRUTH</span></h1>
+    <h1 class="landing-component centered colon">:</h1>
     <form class="landing-form" @submit.prevent="handleSubmit">
 
       <!-- <img src="https://static.thenounproject.com/png/499640-200.png" class="app-logo landing-component"> -->
@@ -16,6 +17,7 @@
         <button @click="slideOut" class="hide-document">HIDE DOCUMENT</button>
         <img src="https://www.onlygfx.com/wp-content/uploads/2017/12/classified-stamp-1.png" class="stamp">
         <img src="../assets/gov_logo.png" class="gov-logo">
+
         <h1 class="centered heading">MOST SECRET</h1>
         <h3 class="centered heading">NATSEN:CANUKUS BURN AFTER USE</h3>
         <p class="paragraph centered paragraph-heading">GCHQ NATSEC PANDEMIC UNIT</p>
@@ -38,7 +40,9 @@
           <span class="blackout" >Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est</span><span class="clue"> {{wordArray[5]}} </span>.
 
         </p>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/8/8b/Coat_of_Arms_of_British_Monarch_%28Golden_Fleece_Variant%29.svg" class="gov-crest centered">
       </div>
+
   </div>
 
 
@@ -116,6 +120,12 @@ export default {
 .left {
   text-align: left;
 }
+.right {
+  text-align: right;
+}
+.spacing {
+  color: transparent;
+}
 .paragraph {
   width: 80%;
   height: auto;
@@ -149,7 +159,15 @@ export default {
   width: 100px;
   opacity: 0.4;
 }
+.gov-crest {
+  height: 100px;
+  width: 100px;
+  display: block;
+margin-left: auto;
+margin-right: auto;
+padding-bottom: 30px;
 
+}
 .left {
   text-align: left;
 }
@@ -205,7 +223,7 @@ box-shadow: inset 0 0 75px rgba(255,210,0,0.3), inset 0 0 20px rgba(255,210,0,0.
 .app-logo {
   width: 300px;
   height: 300px;
-  margin-top: 25vh;
+  margin-top: 5vh;
 
 
 transform: scale(1);
@@ -230,6 +248,7 @@ animation: pulse 30s ease infinite;
 .login-component {
   text-align: center;
   color: white;
+  animation: pulse 30s ease infinite;
 }
 .hide-document {
 
@@ -252,6 +271,7 @@ animation: pulse 30s ease infinite;
   text-align: center;
   color: gray;
   transition: all 1s;
+  animation: pulse 30s ease infinite;
 
 
 
@@ -267,8 +287,15 @@ animation: pulse 30s ease infinite;
   font-size: 20px;
 
 }
+
+.colon {
+  margin-top: 100px;
+  color: white;
+  font-size: 80px;
+  animation: pulse 30s ease infinite;
+}
 #last-paragraph {
-  padding-bottom: 100px;
+  padding-bottom: 30px;
 }
 
 @keyframes pulse {
@@ -282,7 +309,7 @@ animation: pulse 30s ease infinite;
 	}
 	50% {
     opacity: 1;
-    filter: brightness(5);
+    filter: brightness(1.6);
 
 	}
 	75% {
