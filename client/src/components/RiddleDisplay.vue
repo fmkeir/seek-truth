@@ -185,7 +185,13 @@ export default {
   width: 300px;
   height: 300px;
   margin-top: 25vh;
+
+
+transform: scale(1);
+animation: pulse 30s ease infinite;
+
 }
+
 .codeword-entry {
   color: white;
   border-radius: 5px;
@@ -209,7 +215,7 @@ export default {
   font-size: 20px;
   color: white;
   background-color: red;
-  border: white solid 14px;
+  box-shadow: 15px;
 
 }
 .hide-document:hover {
@@ -240,5 +246,29 @@ export default {
 }
 #last-paragraph {
   padding-bottom: 100px;
+}
+
+@keyframes pulse {
+	0% {
+		  opacity: 0.5;
+    filter: brightness(0.5);
+	}
+	25% {
+		  opacity: 0.5;
+    filter: brightness(0.5);
+	}
+	50% {
+    opacity: 1;
+    filter: brightness(5);
+
+	}
+	75% {
+    opacity: 0.5;
+    filter: brightness(0.5);
+	}
+	100% {
+    opacity: 0.5;
+    filter: brightness(0.5);
+	}
 }
 </style>

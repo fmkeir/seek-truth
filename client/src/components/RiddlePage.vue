@@ -12,6 +12,9 @@
 
     </button>
     <riddle-display :selectedRiddle="selectedRiddle"/>
+    <div class="cover-up">
+
+    </div>
   </div>
 
 </template>
@@ -53,6 +56,7 @@ export default {
   background: -webkit-linear-gradient(to bottom, #434343, #000000);
   background: linear-gradient(to bottom, #434343, #000000);
   width: 100vw;
+  height: 100vh;
   position: absolute;
   justify-content: center;
 }
@@ -72,5 +76,15 @@ export default {
 }
 .riddle-button:hover {
   color: white;
+}
+
+.cover-up {
+  width: 100%;
+  height: auto;
+  min-height: 500vh;
+  background-color: black;
+  position: absolute;
+  top: 100vh;
+  z-index: -10;
 }
 </style>

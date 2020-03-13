@@ -125,6 +125,8 @@ export default {
   background: -webkit-linear-gradient(to bottom, #434343, #202020);
   background: linear-gradient(to bottom, #434343, #202020);
   background-size: 100% 300%;
+  position: sticky;
+
 }
 .flexContainer {
   display: flex;
