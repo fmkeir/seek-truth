@@ -13,7 +13,7 @@
     </button>
     <riddle-display :selectedRiddle="selectedRiddle"/>
     <div class="cover-up">
-
+      <!-- <h1 class="landing-component centered colon pulseText">:</h1> -->
     </div>
   </div>
 
@@ -86,5 +86,7 @@ export default {
   position: absolute;
   top: 100vh;
   z-index: -10;
+  border-bottom: solid gray 5px;
 }
+
 </style>
