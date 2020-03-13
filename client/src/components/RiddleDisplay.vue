@@ -19,6 +19,11 @@
         <h1 class="centered heading">MOST SECRET</h1>
         <h3 class="centered heading">NATSEN:CANUKUS BURN AFTER USE</h3>
         <p class="paragraph centered paragraph-heading">GCHQ NATSEC PANDEMIC UNIT</p>
+
+          <p class="addresse left"><span class="blackout">Defence Secretary Wallace</span></p>
+          <p class="addresse left">SW1A 2ET</span></p>
+          <p class="addresse left last-address">Whitehall</p>
+
         <h1 class="centered">{{formatAnswer}}</h1>
         <p class="paragraph centered"><span class="large-font">C</span>oronavirus cases rapidly increasing <span class="blackout">ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Pulvinar pellentesque habitant morbi tristique senectus et netus et. In nisl nisi scelerisque eu ultrices. Turpis cursus in hac habitasse platea. Nisl purus in mollis nunc sed id. Volutpat diam ut venenatis tellus in metus. Purus gravida quis blandit turpis cursus in. Quis blandit turpis cursus in hac habitasse.</span>public health services overwhelmed<span class="blackout"> facilisi nullam vehicula  ipsum a. Est placerat in egestas erat imperdiet sed euismod nisi. Convallis a cras semper auctor neque.</span>
 
@@ -108,6 +113,9 @@ export default {
 .centered {
   text-align: center;
 }
+.left {
+  text-align: left;
+}
 .paragraph {
   width: 80%;
   height: auto;
@@ -122,13 +130,16 @@ export default {
   padding-top: 20px;
 }
 .stamp{
-  height: 200px;
-  width: 400px;
+  height: 150px;
+  width: 300px;
   position: absolute;
-  left: 30%;
-  top: 39%;
+  left: 45%;
+  top: 45%;
   z-index: 1;
   filter: blur(0.8px);
+  pointer-events: none;
+  transform: rotateZ(13deg);
+  /* display: none; */
 }
 .gov-logo {
   position: absolute;
@@ -150,6 +161,8 @@ export default {
   line-height: 20px;
   margin: auto;
   background-color: white;
+  background-image: linear-gradient(to right, rgba(255,210,0,0.4), rgba(200, 160, 0, 0.1) 11%, rgba(0,0,0,0) 35%, rgba(200, 160, 0, 0.1) 65%);
+box-shadow: inset 0 0 75px rgba(255,210,0,0.3), inset 0 0 20px rgba(255,210,0,0.4), inset 0 0 30px rgba(220,120,0,0.8);
   border-radius: 5px;
   font-family: 'Nanum Gothic Coding', monospace;
   transition: all 1s;
@@ -160,7 +173,15 @@ export default {
   transition: transform 2s;
   opacity: 1;
 }
+.addresse {
+  text-align: left;
+  padding-left: 5em;
+  line-height: 20px;
 
+}
+.last-address {
+  margin-bottom: 20px;
+}
 
 .landing-form {
   display: flex;
@@ -212,13 +233,15 @@ animation: pulse 30s ease infinite;
 }
 .hide-document {
 
-  font-size: 20px;
+  font-size: 12px;
   color: white;
   background-color: red;
+  border-left: solid red 15px;
   box-shadow: 15px;
 
 }
 .hide-document:hover {
+  border-left:solid white 15px;
   background-color: white;
   color: red;
 
