@@ -10,9 +10,11 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-MongoClient.connect('mongodb://localhost:27017')
+MongoClient.connect('mongodb://db:27017/')
   .then(client => {
-    const db = client.db('group0');
+    console.log('mongoDB connected');
+    
+    const db = client.db('shindig-server');
     const usersCollection = db.collection('users');
     const shindigsCollection = db.collection('shindigs');
 

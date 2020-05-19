@@ -1,4 +1,4 @@
-use group0;
+use shindig-server;
 db.dropDatabase();
 
 db.users.insertMany([

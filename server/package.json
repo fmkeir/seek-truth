@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "server:dev": "nodemon server.js",
+    "start": "node server.js",
     "seeds": "mongo < ./db/seeds.js"
   },
   "keywords": [],
