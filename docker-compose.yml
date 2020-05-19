@@ -18,3 +18,9 @@ services:
         build: ./mongo-seed
         links:
             - db
+    client:
+        container_name: seek-truth
+        restart: always
+        build: ./client
+        ports:
+            - '8080:8080'
