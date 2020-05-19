@@ -1,0 +1,28 @@
+[
+  {
+    "name": "NOEL'S SHINDIG",
+    "shindigNumber": 0,
+    "instructions": "Knock thrice.",
+    "locationLat": 55.9589326,
+    "locationLong": -3.2139106,
+    "riddleQuestion": "ALPHA NOVEMBER UNIFORM BRAVO INDIA SIERRA",
+    "riddleAnswer": "anubis",
+    "users": [
+      {"codeName": "Monty", "checkedIn": false},
+      {"codeName": "Banksy", "checkedIn": true},
+      {"codeName": "Paul", "checkedIn": true}
+    ]
+  },
+  {
+    "name": "HELIOS",
+    "shindigNumber": 1,
+    "instructions": "Wear an orange article of clothing.",
+    "locationLat": 55.9503509,
+    "locationLong": -3.1918862,
+    "riddleQuestion": "HOTEL ECHO LIMA INDIA OSCAR SIERRA",
+    "riddleAnswer": "helios",
+    "users": [
+      {"codeName": "Eugene", "checkedIn": true}
+    ]
+  }
+]
