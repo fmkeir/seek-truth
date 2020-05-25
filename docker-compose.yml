@@ -6,7 +6,7 @@ services:
         build: ./server
         ports:
             - '3000:3000'
-        links:
+        depends_on:
             - db
     db:
         container_name: db
@@ -16,7 +16,7 @@ services:
     db-seed:
         container_name: db-seed
         build: ./mongo-seed
-        links:
+        depends_on:
             - db
     client:
         container_name: seek-truth
@@ -24,3 +24,5 @@ services:
         build: ./client
         ports:
             - '8080:8080'
+        depends_on:
+            - shindig-server

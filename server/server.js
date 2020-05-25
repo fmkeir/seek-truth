@@ -36,10 +36,9 @@ MongoClient.connect('mongodb://db:27017/')
 
     riddlesRouter.post('/submit-answer', (req, res) => {
       const body = req.body;
-      const userAnswer = body.userAnswer;
-      // userAnswer.toLowerCase();
+      const userAnswer = body.userAnswer.toLowerCase();
       const shindigId = body.shindigId;
-
+      
       shindigsCollection.findOne({
         _id: ObjectId(shindigId)
       })
@@ -63,6 +62,6 @@ MongoClient.connect('mongodb://db:27017/')
   })
   .catch(err => console.error(err));
 
-app.listen(3000, function() {
+app.listen('3000', '0.0.0.0', function() {
   console.log(`App running on port: ${this.address().port}`);
 });

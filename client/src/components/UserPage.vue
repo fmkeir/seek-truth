@@ -2,7 +2,7 @@
   <div id="user-page">
     <div class="page-container">
       <header>
-        <h1>Welcome to the revelation John.</h1>
+        <h1>Welcome to the revelation.</h1>
         <h2>{{shindig.name}}, Shindig {{shindig.shindigNumber}}</h2>
         <h2>Instructions: <br/><br/> {{shindig.instructions}}</h2>
       </header>

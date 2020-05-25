@@ -40,11 +40,7 @@ export default {
       .then(res => res.json())
       .then(riddles => this.riddles = riddles)
 
-    eventBus.$on('submitted-user-answer', (userAnswer) => {
-      const inputArray = userAnswer.userAnswer.split(":");
-      userAnswer.userAnswer = inputArray[1]
-      const userCodeName = inputArray[0]
-      console.log(inputArray);
+    eventBus.$on('submitted-user-answer', (userAnswer) => {     
       fetch('http://localhost:3000/api/riddles/submit-answer', {
         method: 'POST',
         body: JSON.stringify(userAnswer),
@@ -52,7 +48,7 @@ export default {
       })
         .then(res => res.json())
         .then(data => {
-
+          
           if (data === 'admin') {
             this.showUserPage = false
             this.showRiddlePage = false
