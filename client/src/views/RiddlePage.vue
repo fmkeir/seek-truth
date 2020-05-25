@@ -8,9 +8,7 @@
       :key="index"
       @click="handleClick(index)"
       class="riddle-button"
-      > :: CIPHER {{index+1}} ::
-
-    </button>
+      > :: CIPHER {{index+1}} :: </button>
     <riddle-display :selectedRiddle="selectedRiddle"/>
   </div>
 
@@ -39,7 +37,6 @@ export default {
   methods: {
     handleClick(index) {
       this.selectedRiddle = this.riddles[index]
-      console.log(this.selectedRiddle);
     }
   }
 }

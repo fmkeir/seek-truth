@@ -9,9 +9,9 @@
 
 <script>
 import {eventBus} from '@/main.js'
-import AdminPage from "@/components/AdminPage.vue";
-import UserPage from "@/components/UserPage.vue";
-import RiddlePage from "@/components/RiddlePage.vue";
+import AdminPage from "@/views/AdminPage.vue";
+import UserPage from "@/views/UserPage.vue";
+import RiddlePage from "@/views/RiddlePage.vue";
 import ShindigService from '@/services/ShindigService.js'
 
 export default {

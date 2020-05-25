@@ -18,6 +18,7 @@ export default {
     zoomOffset: -1,
     accessToken: configAccessToken
     }).addTo(mymap);
+    L.marker([this.latitude, this.longitude]).addTo(mymap);
   }
 }
 </script>
@@ -25,3 +26,4 @@ export default {
 <style lang="css" scoped>
 #mapid { height: auto; width: 100%; min-height: 250px;}
 </style>
+L.marker([51.5, -0.09]).addTo(map)
