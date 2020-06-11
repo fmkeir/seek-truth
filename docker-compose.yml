@@ -1,7 +1,7 @@
 version: '3'
 services:
     shindig-server:
-        container_name: shindig-server
+        container_name: ST-server
         restart: always
         build: ./server
         ports:
@@ -9,17 +9,17 @@ services:
         depends_on:
             - db
     db:
-        container_name: db
+        container_name: ST-mongo
         image: mongo
         ports:
             - '27017:27017'
     db-seed:
-        container_name: db-seed
+        container_name: ST-seed
         build: ./mongo-seed
         depends_on:
             - db
     client:
-        container_name: seek-truth
+        container_name: ST-client
         restart: always
         build: ./client
         ports:
