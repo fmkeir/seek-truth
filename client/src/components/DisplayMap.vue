@@ -4,7 +4,6 @@
 
 <script>
 import {eventBus} from '@/main.js'
-import configAccessToken from '@/services/config.js'
 
 export default {
   name: "display-map",
@@ -16,7 +15,6 @@ export default {
     id: 'mapbox/streets-v11',
     tileSize: 512,
     zoomOffset: -1,
-    accessToken: configAccessToken
     }).addTo(mymap);
     L.marker([this.latitude, this.longitude]).addTo(mymap);
   }
